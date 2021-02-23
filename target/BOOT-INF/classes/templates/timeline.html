@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head th:replace="_fragments :: head(~{::title})">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Timeline</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/menu.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+	<!--nav-->
+	<nav th:replace= "_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+		<div class = "ui container">
+			<div class = "ui inverted secondary stackable menu"> 
+				<h2 class = "ui teal header item">Yulong Wang</h2>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "home icon"></i>Home</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "idea icon"></i>Category</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "tags icon"></i>Tag</a>
+				<a href="#" class = "active m-item item m-mobile-hide"><i class = "clone icon"></i>Time line</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "info icon"></i>About me</a>
+				<div class = "m-item right item m-mobile-hide">
+					<dir class = "ui icon inverted transparent input m-nopadding-left">
+						<input type="text" placeholder="Search...">
+						<i class = "search link icon"></i>
+						
+					</dir>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show"><i class= "sidebar icon"></i></a>
+	</nav>
+
+	<!--content-->
+	<div class = "m-container-small m-padded-tb-big animate__animated animate__fadeIn">
+		<div class="ui container">
+			<!-- header -->
+			<div class = "ui attached segment">
+				<div class = "ui middle aligned two column grid">
+					<div class = "column">
+						<div class = "ui teal header">Timeline</div>
+					</div>
+					<div class = "right aligned column">
+						Total: <h3 class = "ui orange header m-inline-block" th:text="${blogCount}">14</h3>
+					</div>
+				</div>
+			</div>
+
+			<!-- content -->
+			<th:block th:each="item : ${timelineMap}">
+				<h2 class="ui header" th:text="${item.key}">2020</h2>
+				<div class="ui vertical menu fluid">
+					<a href="" th:href="@{/blogs/{id}(id=${blog.id})}" target = "_blank" class="item" th:each="blog : ${item.value}">
+						<span>
+							<i class = "mini teal circle icon"> </i>
+							<span>&nbsp</span>
+							<span th:text="${blog.title}">About react</span>
+							<div class="ui teal basic left pointing mini label m-margin-lr-small" th:text="${#dates.format(blog.updateTime,'MM/dd')}">2/03</div>
+						</span>
+						<span class="ui" style="float: right"><div class="ui orange mini basic label" th:text="${#strings.capitalize(blog.flag)}">Original</div></span>
+
+					</a>
+				</div>
+			</th:block>
+		</div>
+	</div>
+
+
+	<!--footer-->
+	<footer th:replace = "_fragments :: footer" class = "ui inverted vertical segment m-padded-tb-large">
+		<div class= "ui center aligned container">
+			<div class = "ui inverted divided stackable grid">
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">New blogs</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+
+					</div>
+				</div>
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">Contact me</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">Email: lorne996@gmail.com</a>
+
+					</div>
+				</div>
+
+				<div class = "six wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">About me</h4>
+					<p class = "m-text-thin m-text-spaced m-opacity-mini">Personal blog</p>
+
+					</div>
+				</div>
+				<div class = "ui inverted section divider "></div>
+				<p class = "m-text-thin m-text-spaced m-opacity-big">Copyright©2020  WYL. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<script th:replace="_fragments :: script"></script>
+<script>
+	$(".menu.toggle").click(function (){
+		$(".m-item").toggleClass("m-mobile-hide");
+	})
+</script>
+</body>
+</html>

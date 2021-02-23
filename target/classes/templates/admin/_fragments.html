@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="head(title)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace = "${title}">Publish Blogs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/menu.css" th:href="@{/css/menu.css}">
+    <!-- editormd plugin -->
+    <link rel="stylesheet" href="./lib/editormd/css/editormd.css" th:href="@{/lib/editormd/css/editormd.css}"/>
+</head>
+<body>
+    <!--nav-->
+    <nav th:fragment = "menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class = "ui container">
+            <div class = "ui inverted secondary stackable menu">
+                <h2 class = "ui teal header item">Administration</h2>
+                <a href="#" th:href = "@{/}" class = "m-item item m-mobile-hide"><i class = "home icon"></i>Home</a>
+                <a href="#" th:href = "@{/admin/blogs}" class = "m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class = "blogger icon"></i>Blogs</a>
+                <a href="#" th:href = "@{/admin/categories}" class = "m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class = "idea icon"></i>Category</a>
+                <a href="#" th:href = "@{/admin/tags}" class = "m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class = "tags icon"></i>Tag</a>
+                <a href="#" th:href = "@{/admin/profile}" class = "m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class = "coffee icon"></i>Profile</a>
+                <div class = "m-item m-mobile-hide right menu">
+                    <div class = "ui dropdown item">
+                        <div class="text">
+                            <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/small/jenny.jpg" th:src="@{${session.user.avatar}}">
+                            <span th:text="${session.user.nickname}">Yulong Wang</span>
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href = "#" th:href="@{/admin/logout}" class="item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show"><i class= "sidebar icon"></i></a>
+    </nav>
+
+
+
+    <!--footer-->
+    <footer th:fragment="footer" class = "ui inverted vertical segment m-padded-tb-large">
+        <div class= "ui center aligned container">
+            <div class = "ui inverted divided stackable grid">
+                <div class = "five wide column">
+                    <h4 class = "ui inverted header m-text-thin m-text-spaced">New blogs</h4>
+                    <div id = "newblog-container">
+                        <div class = "ui inverted link list" th:fragment="newblogList">
+                            <a href="#" th:href="@{/blogs/{id}(id=${blog.id})}" class = "item" th:each="blog : ${newblogs}" th:text="${blog.title}">123</a>
+                        </div>
+                    </div>
+                </div>
+                <div class = "five wide column">
+                    <h4 class = "ui inverted header m-text-thin m-text-spaced">Contact me</h4>
+                    <div class = "ui inverted link list">
+                        <a href="#" class = "item" th:text="#{footer.email}">Email: lorne996@gmail.com</a>
+
+                    </div>
+                </div>
+
+                <div class = "six wide column">
+                    <h4 class = "ui inverted header m-text-thin m-text-spaced">About me</h4>
+                    <p class = "m-text-thin m-text-spaced m-opacity-mini" th:text="#{footer.aboutMe}">Personal blog</p>
+
+                </div>
+            </div>
+            <div class = "ui inverted section divider "></div>
+            <p class = "m-text-thin m-text-spaced m-opacity-big">Copyright©2020  WYL. All rights reserved.</p>
+        </div>
+        </div>
+    </footer>
+
+    <th:block th:fragment="script">
+        <script>
+            $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog")
+        </script>
+
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head th:replace="admin/_fragments :: head(~{::title})">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add New Tag</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/menu.css">
+	<!-- editormd plugin -->
+	<link rel="stylesheet" href="./lib/editormd/css/editormd.css" />
+</head>
+<body>
+	<!--nav-->
+	<nav th:replace = "admin/_fragments::menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+		<div class = "ui container">
+			<div class = "ui inverted secondary stackable menu"> 
+				<h2 class = "ui teal header item">Manager</h2>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "home icon"></i>Home</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "idea icon"></i>Category</a>
+				<a href="#" class = "active m-item item m-mobile-hide"><i class = "tags icon"></i>Tag</a>
+				<div class = "m-item m-mobile-hide right menu">
+					<div class = "ui dropdown item">
+						<div class="text">
+					      <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/small/jenny.jpg">
+					      Yulong Wang
+					    </div>
+					    <i class="dropdown icon"></i>
+				        <div class="menu">
+							<div class="item">
+								Logout
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show"><i class= "sidebar icon"></i></a>
+	</nav>
+	<div class="ui attached teal pointing menu">
+		<div class= "ui container ">
+			<div class ="right menu">
+				<a href="#" th:href="@{/admin/tags/input}" class="active item">Add</a>
+				<a href="#" th:href="@{/admin/tags}" class="item">Tags</a>
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<!--content-->
+	<div class = "m-container-small m-padded-tb-big">
+		<div class="ui container">
+			<form id = "blog" action="#" method="post" th:object="${tag}" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}"  class ="ui form">
+				<input type="hidden" name="id" th:value="*{id}">
+				<div class="required field">
+					<div class="ui left labeled input">
+						<label class="ui teal basic label">Tag Name</label>
+						<input type="text" name="name" placeholder="" th:value="*{name}">
+					</div>
+				</div>
+				<div class="ui error message"></div>
+				<!--/*/
+				<div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+					<i class="close icon"></i>
+					<div class= "header">Tip: </div>
+					<p th:errors="*{name}">Category cannot be empty</p>
+				</div>
+				/*/-->
+				
+				<div class="ui right aligned container m-margin-tb-small">
+					<button type="button" class="ui basic left floated  button" onclick="window.history.go(-1)">Back</button>
+					<button class="ui teal submit button">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<!--footer-->
+	<footer th:replace = "admin/_fragments :: footer" class = "ui inverted vertical segment m-padded-tb-large">
+		<div class= "ui center aligned container">
+			<div class = "ui inverted divided stackable grid">
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">New blogs</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+
+					</div>
+				</div>
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">Contact me</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">Email: lorne996@gmail.com</a>
+
+					</div>
+				</div>
+
+				<div class = "six wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">About me</h4>
+					<p class = "m-text-thin m-text-spaced m-opacity-mini">Personal blog</p>
+					</div>
+				</div>
+				<div class = "ui inverted section divider "></div>
+				<p class = "m-text-thin m-text-spaced m-opacity-big">Copyright©2020  WYL. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<script th:replace="_fragments :: script"></script>
+
+<script>
+	$(".menu.toggle").click(function (){
+		$(".m-item").toggleClass("m-mobile-hide");
+	})
+
+	$('.ui.dropdown').dropdown({
+		on: 'hover'
+	});
+
+	$('.ui.form')
+		.form({
+			fields: {
+				name:{
+					identifier: 'name',
+					rules:[{
+						type : 'empty',
+						prompt : 'Please enter the category name'
+					}]
+				}
+			}
+	})
+
+	$(".message .close")
+		.on("click", function(){
+			$(this)
+				.closest(".message")
+				.transition("fade");
+		});
+</script>
+</body>
+</html>

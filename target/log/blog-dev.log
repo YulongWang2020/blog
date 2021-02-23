@@ -1,0 +1,19 @@
+2021-02-22 19:05:53.441  INFO 33928 --- [main] com.wyl.blog.BlogApplication             : Starting BlogApplication v0.0.1-SNAPSHOT using Java 15.0.1 on Lorne-PC with PID 33928 (D:\blogweb\backend\target\blog-0.0.1-SNAPSHOT.jar started by Lorne in D:\blogweb\backend\target)
+2021-02-22 19:05:53.443  INFO 33928 --- [main] com.wyl.blog.BlogApplication             : The following profiles are active: pro
+2021-02-22 19:05:57.684  WARN 33928 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-22 19:06:00.697  WARN 33928 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-22 19:06:01.738  WARN 33928 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8000 is already in use
+2021-02-22 19:06:01.825 ERROR 33928 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8000 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8000 or configure this application to listen on another port.
+

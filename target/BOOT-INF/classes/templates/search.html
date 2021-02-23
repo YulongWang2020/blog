@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head th:replace="_fragments :: head(~{::title})">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Search Results</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/menu.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+	<!--nav-->
+	<nav th:replace= "_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+		<div class = "ui container">
+			<div class = "ui inverted secondary stackable menu"> 
+				<h2 class = "ui teal header item">Yulong Wang</h2>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "home icon"></i>Home</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "idea icon"></i>Category</a>
+				<a href="#" class = "active m-item item m-mobile-hide"><i class = "tags icon"></i>Tag</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "clone icon"></i>Time line</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "info icon"></i>About me</a>
+				<div class = "m-item right item m-mobile-hide">
+					<dir class = "ui icon inverted transparent input m-nopadding-left">
+						<input type="text" placeholder="Search..." th:value="${query}">
+						<i class = "search link icon"></i>
+						
+					</dir>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show"><i class= "sidebar icon"></i></a>
+	</nav>
+
+	<!--content-->
+	<div class = "m-container-small m-padded-tb-big animate__animated animate__fadeIn">
+		<div class="ui container">
+			<!-- header -->
+			<div class = "ui bottom attached segment">
+				<div class = "ui middle aligned two column grid">
+					<div class = "column">
+						<div class = "ui teal header">Search Results</div>
+					</div>
+					<div class = "right aligned column">
+						Total: <h3 class = "ui orange header m-inline-block" th:text="${page.totalElements}">14</h3>
+					</div>
+				</div>
+			</div>
+			<!-- blogs -->
+			<div class="ui teal top attached segment">
+				<div th:each="blog: ${page.content}" class = "ui m-padded-lr-mini vertical segment m-padded-tb-mid">
+						<div class = "ui middle aligned mobile reversed stackable grid">
+							<div class = "eleven wide column">
+								<h3  class = "ui header"><a href="#" target="_blank" th:text="${blog.title}" th:href="@{/blogs/{id}(id=${blog.id})}" class="m-black">Title</a> </h3>
+								<p th:text="|${blog.description}......|" class="m-text-spaced">The word "the" is one of the most common words in English. It is our only definite article. Nouns in English are preceded by the definite article when the speaker believes that the listener already knows what he is referring to. The speaker may believe this for many different reasons, some of which are listed below.</p>
+								<div class = "ui grid">
+									<div class="eleven wide column">
+										<div class = "ui horizontal link list">
+											<div class = "item">
+												<img th:src="@{${blog.user.avatar}}" src="https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8&auto=format&fit=crop&w=600&q=60" alt= "" class = "ui avatar image">
+												<div th:text="${blog.user.nickname}" class = "content"><a href="#" class = "header m-black">Yulong Wang</a></div>
+											</div>
+											<div class = item>
+												<i class = "calendar icon"></i> <span class ="ui middle aligned" th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}" >2020-2-02</span>
+											</div>
+											<div class="item">
+												<i  class = "eye icon"></i> <span class ="ui middle aligned" th:text="${blog.views}">234</span>
+											</div>
+										</div>
+									</div>
+									<div class = "right aligned middle aligned five wide column">
+										<a th:text="${blog.type.name}" href="" target = "_blank" class = "ui teal basic label m-padded-mini m-text-thin">tag</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="five wide column">
+								<a href="#" target ="_blank" th:href="@{/blogs/{id}(id=${blog.id})}">
+									<img th:src="@{${blog.firstPicture}}" class="ui rounded image" src="https://images.unsplash.com/photo-1593642532454-e138e28a63f4?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+								</a>
+							</div>
+						</div>
+					</div>
+			</div>
+			<!-- bottom -->
+			<div class = "ui bottom attached segment" th:if="${page.totalPages}>1">
+				<div class = "ui middle aligned two column grid">
+					<div class = "column">
+						<a href="#" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}" class = "ui mini teal basic button">Pre</a>
+					</div>
+					<div class = "right aligned column">
+						<a href="#" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}" class = "ui mini teal basic button">Next</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--footer-->
+	<footer th:replace = "_fragments :: footer" class = "ui inverted vertical segment m-padded-tb-large">
+		<div class= "ui center aligned container">
+			<div class = "ui inverted divided stackable grid">
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">New blogs</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+
+					</div>
+				</div>
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">Contact me</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">Email: lorne996@gmail.com</a>
+
+					</div>
+				</div>
+
+				<div class = "six wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">About me</h4>
+					<p class = "m-text-thin m-text-spaced m-opacity-mini">Personal blog</p>
+
+					</div>
+				</div>
+				<div class = "ui inverted section divider "></div>
+				<p class = "m-text-thin m-text-spaced m-opacity-big">Copyright©2020  WYL. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<script th:replace="_fragments :: script"></script>
+<script>
+	$(".menu.toggle").click(function (){
+		$(".m-item").toggleClass("m-mobile-hide");
+	})
+</script>
+</body>
+</html>

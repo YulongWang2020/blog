@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head th:replace="admin/_fragments :: head(~{::title})">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Category Managing</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/menu.css">
+</head>
+<body>
+	<!--nav-->
+	<nav th:replace="admin/_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+		<div class = "ui container">
+			<div class = "ui inverted secondary stackable menu"> 
+				<h2 class = "ui teal header item">Manager</h2>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "home icon"></i>Home</a>
+				<a href="#" class = "active m-item item m-mobile-hide"><i class = "idea icon"></i>Category</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "tags icon"></i>Tag</a>
+				<div class = "m-item m-mobile-hide right menu">
+					<div class = "ui dropdown item">
+						<div class="text">
+					      <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/small/jenny.jpg">
+					      Yulong Wang
+					    </div>
+					    <i class="dropdown icon"></i>
+				        <div class="menu">
+							<div class="item">
+								Logout
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show"><i class= "sidebar icon"></i></a>
+	</nav>
+
+	<!--content-->
+	<div class = "m-padded-tb-big">
+		<div class="ui container">
+			<form id = "profile-form" action="#" th:object="${profile}" th:action="@{/admin/profile}" enctype="multipart/form-data" method="post" class ="ui form">
+				<div class="ui segment">
+					<img class="ui fluid rounded image" id="img" src="/images/profile.jpg" th:src="${page.content[0].picture}">
+					<input type="file" name="file" id="file" style="display:none">
+				</div>
+
+				<div class="field">
+					<div class="ui left labeled action input">
+						<label class="ui compact teal basic label">Skills</label>
+						<div class="ui skills fluid multiple search selection dropdown">
+							<input type="hidden" name="skills" th:value="${page.content[0].skills}">
+							<div class="default text">Skills</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="required field">
+					<textarea name="aboutMe" th:text="${page.content[0].aboutMe}" placeholder="About me..." maxlength="200" ></textarea>
+				</div>
+
+				<div class="ui error message"></div>
+				<div class="ui right aligned container m-margin-tb-small">
+					<button type="button" id="save-btn" class="ui teal submit button">Save</button>
+				</div>
+
+
+			</form>
+
+		</div>
+	</div>
+
+
+	<!--footer-->
+	<footer th:replace = "admin/_fragments :: footer"  class = "ui inverted vertical segment m-padded-tb-large">
+		<div class= "ui center aligned container">
+			<div class = "ui inverted divided stackable grid">
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">New blogs</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+
+					</div>
+				</div>
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">Contact me</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">Email: lorne996@gmail.com</a>
+
+					</div>
+				</div>
+
+				<div class = "six wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">About me</h4>
+					<p class = "m-text-thin m-text-spaced m-opacity-mini">Personal blog</p>
+
+					</div>
+				</div>
+				<div class = "ui inverted section divider "></div>
+				<p class = "m-text-thin m-text-spaced m-opacity-big">Copyright©2020  WYL. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script th:replace="_fragments :: script"></script>
+<script>
+	$(".menu.toggle").click(function (){
+		$(".m-item").toggleClass("m-mobile-hide");
+	})
+
+ 	$("#img").click(function(){
+    	$("input[name=file]").trigger('click');
+ 	});
+
+	$('#save-btn').click(function(){
+		$("#profile-form").submit();
+	});
+
+	$('.ui.dropdown').dropdown({
+		on: 'hover'
+	});
+
+	$('.skills.fluid.multiple.search')
+	  .dropdown({
+		allowAdditions: true
+	  });
+	$(".message .close")
+		.on("click", function(){
+			$(this)
+				.closest(".message")
+				.transition("fade");
+		});
+</script>
+</body>
+</html>

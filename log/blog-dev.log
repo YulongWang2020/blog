@@ -1,0 +1,70 @@
+2021-02-23 11:35:15.915  INFO 18092 --- [restartedMain] com.wyl.blog.BlogApplication             : Starting BlogApplication using Java 15.0.1 on Lorne-PC with PID 18092 (D:\blogweb\backend\target\classes started by Lorne in D:\blogweb\backend)
+2021-02-23 11:35:15.925  INFO 18092 --- [restartedMain] com.wyl.blog.BlogApplication             : The following profiles are active: pro
+2021-02-23 11:35:18.679  WARN 18092 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-23 11:35:21.336  WARN 18092 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-23 11:35:22.887  INFO 18092 --- [restartedMain] com.wyl.blog.BlogApplication             : Started BlogApplication in 7.469 seconds (JVM running for 8.172)
+2021-02-23 11:35:38.524  INFO 18092 --- [http-nio-8000-exec-1] com.wyl.blog.aspect.LogAspect            : Request: {url= '/', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.index', args=[Page request [number: 0, size 7, sort: updateTime: DESC], {}]}
+2021-02-23 11:35:38.587  WARN 18092 --- [http-nio-8000-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-23 11:35:38.603  WARN 18092 --- [http-nio-8000-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-23 11:35:38.615  INFO 18092 --- [http-nio-8000-exec-1] com.wyl.blog.aspect.LogAspect            : Result : index
+2021-02-23 11:35:39.180  INFO 18092 --- [http-nio-8000-exec-5] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:35:39.183  INFO 18092 --- [http-nio-8000-exec-5] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:35:41.196  INFO 18092 --- [http-nio-8000-exec-7] com.wyl.blog.aspect.LogAspect            : Request: {url= '/about', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.AboutShowController.about', args=[Page request [number: 0, size 20, sort: UNSORTED], {}]}
+2021-02-23 11:35:41.233  INFO 18092 --- [http-nio-8000-exec-7] com.wyl.blog.aspect.LogAspect            : Result : aboutme
+2021-02-23 11:35:41.344  INFO 18092 --- [http-nio-8000-exec-4] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:35:41.347  INFO 18092 --- [http-nio-8000-exec-4] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:35:45.240  INFO 18092 --- [http-nio-8000-exec-1] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:35:45.243  INFO 18092 --- [http-nio-8000-exec-1] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:35:46.047  INFO 18092 --- [http-nio-8000-exec-6] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:35:46.050  INFO 18092 --- [http-nio-8000-exec-6] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:36:09.983  INFO 18092 --- [http-nio-8000-exec-2] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:36:09.986  INFO 18092 --- [http-nio-8000-exec-2] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:36:37.094  INFO 18092 --- [http-nio-8000-exec-10] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:36:37.098  INFO 18092 --- [http-nio-8000-exec-10] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:36:39.987  INFO 18092 --- [http-nio-8000-exec-4] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:36:39.990  INFO 18092 --- [http-nio-8000-exec-4] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:36:43.285  INFO 18092 --- [http-nio-8000-exec-3] com.wyl.blog.aspect.LogAspect            : Request: {url= '/', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.index', args=[Page request [number: 0, size 7, sort: updateTime: DESC], {}]}
+2021-02-23 11:36:43.295  INFO 18092 --- [http-nio-8000-exec-3] com.wyl.blog.aspect.LogAspect            : Result : index
+2021-02-23 11:36:43.506  INFO 18092 --- [http-nio-8000-exec-10] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:36:43.508  INFO 18092 --- [http-nio-8000-exec-10] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:36:44.515  INFO 18092 --- [http-nio-8000-exec-8] com.wyl.blog.aspect.LogAspect            : Request: {url= '/about', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.AboutShowController.about', args=[Page request [number: 0, size 20, sort: UNSORTED], {}]}
+2021-02-23 11:36:44.518  INFO 18092 --- [http-nio-8000-exec-8] com.wyl.blog.aspect.LogAspect            : Result : aboutme
+2021-02-23 11:36:44.701  INFO 18092 --- [http-nio-8000-exec-3] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:36:44.704  INFO 18092 --- [http-nio-8000-exec-3] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:36:46.774  INFO 18092 --- [http-nio-8000-exec-5] com.wyl.blog.aspect.LogAspect            : Request: {url= '/about', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.AboutShowController.about', args=[Page request [number: 0, size 20, sort: UNSORTED], {}]}
+2021-02-23 11:36:46.779  INFO 18092 --- [http-nio-8000-exec-5] com.wyl.blog.aspect.LogAspect            : Result : aboutme
+2021-02-23 11:36:47.011  INFO 18092 --- [http-nio-8000-exec-8] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:36:47.013  INFO 18092 --- [http-nio-8000-exec-8] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:37:07.758  INFO 23064 --- [main] com.wyl.blog.BlogApplicationTests        : Starting BlogApplicationTests using Java 15.0.1 on Lorne-PC with PID 23064 (started by Lorne in D:\blogweb\backend)
+2021-02-23 11:37:07.760  INFO 23064 --- [main] com.wyl.blog.BlogApplicationTests        : The following profiles are active: pro
+2021-02-23 11:37:09.791  WARN 23064 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-23 11:37:12.883  WARN 23064 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-23 11:37:13.943  INFO 23064 --- [main] com.wyl.blog.BlogApplicationTests        : Started BlogApplicationTests in 6.5 seconds (JVM running for 7.418)
+2021-02-23 11:42:38.693  INFO 7304 --- [restartedMain] com.wyl.blog.BlogApplication             : Starting BlogApplication using Java 15.0.1 on Lorne-PC with PID 7304 (D:\blogweb\backend\target\classes started by Lorne in D:\blogweb\backend)
+2021-02-23 11:42:38.695  INFO 7304 --- [restartedMain] com.wyl.blog.BlogApplication             : The following profiles are active: pro
+2021-02-23 11:42:41.221  WARN 7304 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-23 11:42:43.617  WARN 7304 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-23 11:42:45.144  INFO 7304 --- [restartedMain] com.wyl.blog.BlogApplication             : Started BlogApplication in 6.873 seconds (JVM running for 7.499)
+2021-02-23 11:42:53.043  INFO 7304 --- [http-nio-8000-exec-1] com.wyl.blog.aspect.LogAspect            : Request: {url= '/', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.index', args=[Page request [number: 0, size 7, sort: updateTime: DESC], {}]}
+2021-02-23 11:42:53.097  WARN 7304 --- [http-nio-8000-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-23 11:42:53.108  WARN 7304 --- [http-nio-8000-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-23 11:42:53.115  INFO 7304 --- [http-nio-8000-exec-1] com.wyl.blog.aspect.LogAspect            : Result : index
+2021-02-23 11:42:53.679  INFO 7304 --- [http-nio-8000-exec-8] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:42:53.682  INFO 7304 --- [http-nio-8000-exec-8] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:42:54.968  INFO 7304 --- [http-nio-8000-exec-9] com.wyl.blog.aspect.LogAspect            : Request: {url= '/about', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.AboutShowController.about', args=[Page request [number: 0, size 20, sort: UNSORTED], {}]}
+2021-02-23 11:42:55.004  INFO 7304 --- [http-nio-8000-exec-9] com.wyl.blog.aspect.LogAspect            : Result : aboutme
+2021-02-23 11:42:55.099  INFO 7304 --- [http-nio-8000-exec-2] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:42:55.103  INFO 7304 --- [http-nio-8000-exec-2] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:42:56.575  INFO 7304 --- [http-nio-8000-exec-4] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:42:56.577  INFO 7304 --- [http-nio-8000-exec-4] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:42:57.470  INFO 7304 --- [http-nio-8000-exec-6] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:42:57.473  INFO 7304 --- [http-nio-8000-exec-6] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 11:43:03.537  INFO 7304 --- [http-nio-8000-exec-1] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 11:43:03.540  INFO 7304 --- [http-nio-8000-exec-1] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 12:05:02.445  INFO 7304 --- [http-nio-8000-exec-9] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-23 12:05:02.450  INFO 7304 --- [http-nio-8000-exec-9] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
+2021-02-23 12:14:14.585  INFO 22488 --- [main] com.wyl.blog.BlogApplicationTests        : Starting BlogApplicationTests using Java 15.0.1 on Lorne-PC with PID 22488 (started by Lorne in D:\blogweb\backend)
+2021-02-23 12:14:14.586  INFO 22488 --- [main] com.wyl.blog.BlogApplicationTests        : The following profiles are active: pro
+2021-02-23 12:14:16.683  WARN 22488 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-23 12:14:19.848  WARN 22488 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-23 12:14:20.859  INFO 22488 --- [main] com.wyl.blog.BlogApplicationTests        : Started BlogApplicationTests in 6.615 seconds (JVM running for 7.464)

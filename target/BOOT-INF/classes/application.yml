@@ -1,0 +1,22 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+   active: pro
+  multipart:
+    maxRequestSize=50Mb:
+    maxFileSize=50Mb:
+
+
+comment.avatar: /images/avatar.jpg
+upload.path: D:/blogweb/backend/src/main/resources/static/images/upload
+virtual.images.path: /images/**
+virtual.images.path.plant: /images/
+
+profile.picture: /images/profile.jpg
+profile.aboutMe: asdfadsasfb
+profile.skills: HTML,CSS,Javascript,Java,Springboot
+profile.github: https://github.com/YulongWang2020
+profile.facebook: https://www.facebook.com/yulong.wang.391/
+profile.ins: https://www.instagram.com/lorne2048/
+

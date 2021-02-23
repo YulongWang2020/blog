@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="head(title)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace = "${title}">Blog Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/menu.css" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" type="text/css" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+</head>
+<body>
+    <!--nav-->
+    <nav th:fragment = "menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class = "ui container">
+            <div class = "ui inverted secondary stackable menu">
+                <a href="/"><h2 class = "ui teal header item">Yulong Wang</h2></a>
+
+                <a href="#" th:href="@{/}" class = "m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class = "home icon"></i>Home</a>
+                <a href="#" th:href="@{/categories/-1}" class = "m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class = "idea icon"></i>Category</a>
+                <a href="#" th:href="@{/tags/-1}" class = "m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class = "tags icon"></i>Tag</a>
+                <a href="#" th:href="@{/timeline}" class = "m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class = "clone icon"></i>Time line</a>
+                <a href="#" th:href="@{/about}" class = "m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class = "info icon"></i>About me</a>
+                <div class = "m-item right item m-mobile-hide">
+                    <a href="#" th:href="@{/admin/blogs}" class="m-padded-lr-mini" style="color: #A0A0A0;">Login</a>
+                    <form name="search" action="#" method="post" th:action="@{/search}" target="_blank">
+                        <div class = "ui icon inverted transparent input m-nopadding-left">
+                            <input type="text" name="query" placeholder="Search..." th:value="${query}">
+                            <i onclick="document.forms['search'].submit()" class ="search link icon"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show"><i class= "sidebar icon"></i></a>
+    </nav>
+
+    <!--footer-->
+    <footer th:fragment="footer" class = "ui inverted vertical segment m-padded-tb-large">
+        <div class= "ui center aligned container">
+            <div class = "ui inverted divided stackable grid">
+                <div class = "five wide column">
+                    <h4 class = "ui inverted header m-text-thin m-text-spaced">New blogs</h4>
+                    <div id = "newblog-container">
+                        <div class = "ui inverted link list" th:fragment="newblogList">
+                            <a href="#" th:href="@{/blogs/{id}(id=${blog.id})}" class = "item" th:each="blog : ${newblogs}" th:text="${blog.title}">123</a>
+                        </div>
+                    </div>
+                </div>
+                <div class = "five wide column">
+                    <h4 class = "ui inverted header m-text-thin m-text-spaced">Contact me</h4>
+                    <div class = "ui inverted link list">
+                        <a href="#" class = "item" th:text="#{footer.email}">Email: lorne996@gmail.com</a>
+
+                    </div>
+                </div>
+
+                <div class = "six wide column">
+                    <h4 class = "ui inverted header m-text-thin m-text-spaced">About me</h4>
+                    <p class = "m-text-thin m-text-spaced m-opacity-mini" th:text="#{footer.aboutMe}">Personal blog</p>
+
+                </div>
+            </div>
+            <div class = "ui inverted section divider "></div>
+            <p class = "m-text-thin m-text-spaced m-opacity-big">Copyright©2020  WYL. All rights reserved.</p>
+        </div>
+        </div>
+    </footer>
+
+    <th:block th:fragment="script">
+        <script>
+            $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog")
+        </script>
+
+    </th:block>
+
+</body>
+</html>

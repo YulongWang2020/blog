@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head th:replace="_fragments :: head(~{::title})">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About me</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/menu.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+	<!--nav-->
+	<nav th:replace= "_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+		<div class = "ui container">
+			<div class = "ui inverted secondary stackable menu"> 
+				<h2 class = "ui teal header item">Yulong Wang</h2>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "home icon"></i>Home</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "idea icon"></i>Category</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "tags icon"></i>Tag</a>
+				<a href="#" class = "m-item item m-mobile-hide"><i class = "clone icon"></i>Time line</a>
+				<a href="#" class = "active m-item item m-mobile-hide"><i class = "info icon"></i>About me</a>
+				<div class = "m-item right item m-mobile-hide">
+					<dir class = "ui icon inverted transparent input m-nopadding-left">
+						<input type="text" placeholder="Search...">
+						<i class = "search link icon"></i>
+						
+					</dir>
+				</div>
+			</div>
+		</div>
+		<a href="#" class="ui menu toggle black icon button m-top-right m-mobile-show"><i class= "sidebar icon"></i></a>
+	</nav>
+
+	<!--content-->
+	<div class = "m-padded-tb-big animate__animated animate__fadeIn">
+		<div class = "ui container">
+			<div class="ui stackable grid">
+				<div class="eleven wide column">
+					<a href="#" target="_blank">
+						<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80" th:src="@{${picture}}" alt="" class = "ui rounded image">
+					</a>
+				</div>
+				<div class="five wide column">
+					<div class = "ui top attached segment">
+						<div class = "ui header">About me</div>
+					</div>
+					<div class = "ui attached segment">
+						<p class = "m-text-thin m-text-spaced" th:text="${aboutMe}">With the addition of a video game console in our home, my brothers and I used to spend as many hours playing sports in front of the tv as we did outside.
+
+						The good ol' fashion button mashin' of my youth was no small part of the inspiration for the 2012 Summer Games interactive doodles. (In fact, collaborator Marcin Wichary even wired up these doodles with the then newly released Gamepad API, allowing users to mash actual buttons.)
+						</p>
+					</div>
+					<div class = "ui attached segment">
+						<div class = "ui teal basic label m-margin-tb-mini" th:each="skill : ${skills}" th:text="${skill}">React</div>
+					</div>
+					<div class = "ui bottom attached segment">
+						<a href="#" th:href="@{${github}}" target="_blank" class = "ui circular icon button"><i class = " github icon"></i></a>
+						<a href="#" th:href="@{${facebook}}" target="_blank" class = "ui circular icon button"><i class = " linkedin icon"></i></a>
+						<a href="#" th:href="@{${ins}}" target="_blank" class = "ui circular icon button"><i class = " facebook icon"></i></a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--footer-->
+	<footer th:replace = "_fragments :: footer" class = "ui inverted vertical segment m-padded-tb-large">
+		<div class= "ui center aligned container">
+			<div class = "ui inverted divided stackable grid">
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">New blogs</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+						<a href="#" class = "item">123</a>
+
+					</div>
+				</div>
+				<div class = "five wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">Contact me</h4>
+					<div class = "ui inverted link list">
+						<a href="#" class = "item">Email: lorne996@gmail.com</a>
+
+					</div>
+				</div>
+
+				<div class = "six wide column">
+					<h4 class = "ui inverted header m-text-thin m-text-spaced">About me</h4>
+					<p class = "m-text-thin m-text-spaced m-opacity-mini">Personal blog</p>
+					</div>
+				</div>
+				<div class = "ui inverted section divider "></div>
+				<p class = "m-text-thin m-text-spaced m-opacity-big">Copyright©2020  WYL. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<script th:replace="_fragments :: script"></script>
+<script>
+	$(".menu.toggle").click(function (){
+		$(".m-item").toggleClass("m-mobile-hide");
+	})
+</script>
+</body>
+</html>
