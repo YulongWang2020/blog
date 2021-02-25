@@ -80,6 +80,9 @@ public class BlogController {
         setTypeAndTag(model);
         Blog blog = blogService.getBlog(id);
         blog.init();
+        if (blog.getFirstPicture().equals("/images/defaultFirstPicture.jpg")){
+            blog.setFirstPicture(null);
+        }
         model.addAttribute("blog",blogService.getBlog(id));
         return INPUT;
     }

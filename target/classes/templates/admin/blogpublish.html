@@ -211,11 +211,13 @@
             height  : 800,
             syncScrolling : "single",
             path    : "/lib/editormd/lib/",
+            saveHTMLToTextarea: true,
+            htmlDecode: "style,script,iframe|on*",
             imageUpload    : true,
 			imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
 			imageUploadURL : "./upload",
-        });
 
+        });
     });
 </script>
 

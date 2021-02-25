@@ -29,6 +29,7 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     @Override
     public Blog getBlog(Long id) {
+        blogRepository.updateViews(id);
         return blogRepository.findById(id).get();
     }
 

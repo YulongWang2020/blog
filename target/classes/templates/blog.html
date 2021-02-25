@@ -34,7 +34,7 @@
 	</nav>
 
 	<!--content-->
-	<div id = "waypoint" class = "m-container-small m-padded-tb-big animate__animated animate__fadeIn">
+	<div id = "waypoint" class = "m-padded-tb-big animate__animated animate__fadeIn">
 		<div class= "ui container ">
 			<div class="ui top attached segment">
 				<div class = "ui horizontal link list">
@@ -61,16 +61,9 @@
 
 				<h2 class="ui center aligned header" th:text="${blog.title}">Basketball 2012</h2>
 				<br>
-				<div id = "content" class = "js-toc-content m-padded-lr-mini-responsive m-padded-tb-mid" th:utext="${blog.content}">With the addition of a video game console in our home, my brothers and I used to spend as many hours playing sports in front of the tv as we did outside.
-
-				The good ol' fashion button mashin' of my youth was no small part of the inspiration for the 2012 Summer Games interactive doodles. (In fact, collaborator Marcin Wichary even wired up these doodles with the then newly released Gamepad API, allowing users to mash actual buttons.)
-				To my great joy, over one billion games were played on the Google homepages in this four-day interactive doodle run. (Besides this basketball game, there're doodles for hurdles, slalom canoe, and soccer/football.) With each game presenting an opportunity to share your high score, I'm sure quite a few brothers, sisters, friends, etc. were able to play, compete, and grow closer with these doodles.
-				As a personal touch, the setting of this particular "event" was inspired by another place I used to spend a lot of time with my brothers – our elementary school gym.
-				Here's a video of us performing at a talent show in that very gym. I'm exhibiting my talent for choreographed dancing in a shark costume, obviously.
-
-				Posted by Ryan Germick, Doodle Team Lead
+				<div id = "content" class = "js-toc-content m-padded-lr-mini-responsive m-padded-tb-mid" >
+					<textarea name="markdown" id="markdown" th:text="${blog.content}"># Title</textarea>
 				</div>
-				<!-- tag -->
 				<div class="m-padded-lr-mini-responsive ">
 					<div class="ui basic teal left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.name}">Learning</div>
 				</div>
@@ -232,7 +225,28 @@
 <script type="text/javascript" src ="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}" ></script>
 <script src="../static/lib/jqueryscrollto/jquery.scrollTo.min.js" th:src="@{/lib/jqueryscrollto/jquery.scrollTo.min.js}"></script>
 <script src="../static/lib/waypoint/noframework.waypoints.min.js" th:src="@{/lib/waypoint/noframework.waypoints.min.js}"></script>
-	<script th:replace="_fragments :: script"></script>
+<script src="./lib/editormd/lib/marked.min.js" th:src="@{/lib/editormd/lib/marked.min.js}"></script>
+<script src="./lib/editormd/lib/prettify.min.js" th:src="@{/lib/editormd/lib/prettify.min.js}"></script>
+<script src="./lib/editormd/lib/raphael.min.js" th:src="@{/lib/editormd/lib/raphael.min.js}"></script>
+<script src="./lib/editormd/lib/underscore.min.js" th:src="@{/lib/editormd/lib/underscore.min.js}"></script>
+<script src="./lib/editormd/lib/sequence-diagram.min.js" th:src="@{/lib/editormd/lib/sequence-diagram.min.js}"></script>
+<script src="./lib/editormd/lib/flowchart.min.js" th:src="@{/lib/editormd/lib/flowchart.min.js}"></script>
+<script src="./lib/editormd/lib/jquery.flowchart.min.js" th:src="@{/lib/editormd/lib/jquery.flowchart.min.js}"></script>
+<script src="./lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+<script th:replace="_fragments :: script"></script>
+
+<script type="text/javascript">
+	<!--markdown to html-->
+    editormd = editormd.markdownToHTML("content", {
+        htmlDecode      : "style,script,iframe",  // you can filter tags decode
+        emoji           : true,
+        taskList        : true,
+        tex             : true,  // 默认不解析
+        flowChart       : true,  // 默认不解析
+        sequenceDiagram : true,  // 默认不解析
+    });
+</script>
+
 <script>
 	$(".menu.toggle").click(function (){
 		$(".m-item").toggleClass("m-mobile-hide");
@@ -242,6 +256,8 @@
 		on: "click",
 		position: "left center"
 	});
+
+	$("#content).children("img").width(100)
 
 	tocbot.init({
 	  // Where to render the table of contents.
