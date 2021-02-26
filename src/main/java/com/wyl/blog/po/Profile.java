@@ -13,6 +13,7 @@ public class Profile {
 
     private String skills;
 
+    @Lob
     private String aboutMe;
 
     private String picture;

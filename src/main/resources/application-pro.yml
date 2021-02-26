@@ -15,5 +15,3 @@ logging:
     com.wyl: info
   file:
     name: log/blog-dev.log
-server:
-  port: 8000
