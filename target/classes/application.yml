@@ -21,9 +21,9 @@ profile.facebook: https://www.facebook.com/yulong.wang.391/
 profile.ins: https://www.instagram.com/lorne2048/
 
 
-server.port: 443
-server.ssl.key-store: D:\blogweb\backend\src\main\resources\privatekey.jks
-server.ssl.key-store-password: Aa296883842!?
-server.ssl.protocol: TLS
-server.ssl.key-alias: tomcat
+#server.port: 443
+#server.ssl.key-store: D:\blogweb\backend\src\main\resources\privatekey.jks
+#server.ssl.key-store-password: yourpassword
+#server.ssl.protocol: TLS
+#server.ssl.key-alias: tomcat
 

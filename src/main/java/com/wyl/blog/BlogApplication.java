@@ -18,33 +18,33 @@ public class BlogApplication {
 		SpringApplication.run(BlogApplication.class, args);
 	}
 
-	@Value("${server.port}")
-	private int port;
-
-	@Bean
-	public ServletWebServerFactory servletContainer() {
-		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
-			@Override
-			protected void postProcessContext(Context context) {
-				SecurityConstraint securityConstraint = new SecurityConstraint();
-				securityConstraint.setUserConstraint("confidential");
-				SecurityCollection collection = new SecurityCollection();
-				collection.addPattern("/*");
-				securityConstraint.addCollection(collection);
-				context.addConstraint(securityConstraint);
-			}
-		};
-		tomcat.addAdditionalTomcatConnectors(createSslConnector());
-		return tomcat;
-	}
-
-	private Connector createSslConnector() {
-		Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
-		connector.setScheme("http");
-		connector.setPort(80);
-		connector.setSecure(false);
-		connector.setRedirectPort(port);
-		return connector;
-	}
+//	@Value("${server.port}")
+//	private int port;
+//
+//	@Bean
+//	public ServletWebServerFactory servletContainer() {
+//		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
+//			@Override
+//			protected void postProcessContext(Context context) {
+//				SecurityConstraint securityConstraint = new SecurityConstraint();
+//				securityConstraint.setUserConstraint("confidential");
+//				SecurityCollection collection = new SecurityCollection();
+//				collection.addPattern("/*");
+//				securityConstraint.addCollection(collection);
+//				context.addConstraint(securityConstraint);
+//			}
+//		};
+//		tomcat.addAdditionalTomcatConnectors(createSslConnector());
+//		return tomcat;
+//	}
+//
+//	private Connector createSslConnector() {
+//		Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+//		connector.setScheme("http");
+//		connector.setPort(80);
+//		connector.setSecure(false);
+//		connector.setRedirectPort(port);
+//		return connector;
+//	}
 
 }

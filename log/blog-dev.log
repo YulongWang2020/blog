@@ -397,3 +397,80 @@ Identify and stop the process that's listening on port 443 or configure this app
 2021-02-26 12:54:25.970  WARN 21592 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2021-02-26 12:54:29.430  WARN 21592 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2021-02-26 12:54:30.593  INFO 21592 --- [main] com.wyl.blog.BlogApplicationTests        : Started BlogApplicationTests in 7.74 seconds (JVM running for 8.73)
+2021-02-26 13:31:44.665  INFO 15788 --- [restartedMain] com.wyl.blog.BlogApplication             : Starting BlogApplication using Java 15.0.1 on Lorne-PC with PID 15788 (D:\blogweb\gitdemo\target\classes started by Lorne in D:\blogweb\gitdemo)
+2021-02-26 13:31:44.667  INFO 15788 --- [restartedMain] com.wyl.blog.BlogApplication             : The following profiles are active: pro
+2021-02-26 13:31:46.701 ERROR 15788 --- [restartedMain] org.apache.catalina.util.LifecycleBase   : Failed to initialize component [Connector[HTTP/1.1-80]]
+
+org.apache.catalina.LifecycleException: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:1042) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:558) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:1057) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:173) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:451) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:200) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:181) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:159) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:582) ~[spring-context-5.3.3.jar:5.3.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1311) ~[spring-boot-2.4.2.jar:2.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.4.2.jar:2.4.2]
+	at com.wyl.blog.BlogApplication.main(BlogApplication.java:18) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.2.jar:2.4.2]
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.bind(Net.java:550) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:249) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:88) ~[na:na]
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:228) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:211) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1159) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1172) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:592) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:80) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:1039) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	... 27 common frames omitted
+
+2021-02-26 13:31:47.548  WARN 15788 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-26 13:31:48.832  WARN 15788 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-02-26 13:31:50.185  WARN 15788 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-26 13:31:51.954  WARN 15788 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 443 is already in use
+2021-02-26 13:31:51.993 ERROR 15788 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 443 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 443 or configure this application to listen on another port.
+
+2021-02-26 13:32:18.218  INFO 18724 --- [restartedMain] com.wyl.blog.BlogApplication             : Starting BlogApplication using Java 15.0.1 on Lorne-PC with PID 18724 (D:\blogweb\gitdemo\target\classes started by Lorne in D:\blogweb\gitdemo)
+2021-02-26 13:32:18.220  INFO 18724 --- [restartedMain] com.wyl.blog.BlogApplication             : The following profiles are active: pro
+2021-02-26 13:32:20.872  WARN 18724 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-02-26 13:32:22.051  WARN 18724 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-02-26 13:32:23.298  WARN 18724 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-26 13:32:25.067  INFO 18724 --- [restartedMain] com.wyl.blog.BlogApplication             : Started BlogApplication in 7.309 seconds (JVM running for 8.004)
+2021-02-26 13:32:30.390  INFO 18724 --- [http-nio-8080-exec-1] com.wyl.blog.aspect.LogAspect            : Request: {url= '/', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.index', args=[Page request [number: 0, size 7, sort: updateTime: DESC], {}]}
+2021-02-26 13:32:30.464  WARN 18724 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-26 13:32:30.474  WARN 18724 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2021-02-26 13:32:30.494  INFO 18724 --- [http-nio-8080-exec-1] com.wyl.blog.aspect.LogAspect            : Result : index
+2021-02-26 13:32:31.092  INFO 18724 --- [http-nio-8080-exec-7] com.wyl.blog.aspect.LogAspect            : Request: {url= '/footer/newblog', ip='0:0:0:0:0:0:0:1', classMethod='com.wyl.blog.web.IndexController.newblogs', args=[{}]}
+2021-02-26 13:32:31.101  INFO 18724 --- [http-nio-8080-exec-7] com.wyl.blog.aspect.LogAspect            : Result : _fragments :: newblogList
